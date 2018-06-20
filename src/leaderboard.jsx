@@ -6,6 +6,7 @@ import PositionPanel from './positionPanel'
 const styles = theme => ({
   root: {
     width: '100%',
+    paddingBottom: '50px',
   }
 });
 
