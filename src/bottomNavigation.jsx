@@ -7,6 +7,15 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
+const styles = theme => ({
+  nav: {
+    position: 'fixed',
+    width: '100%',
+    bottom: '0px',
+    zIndex: 1,
+  },
+});
+
 class SimpleBottomNavigation extends React.Component {
   state = {
     value: 0,
@@ -25,6 +34,7 @@ class SimpleBottomNavigation extends React.Component {
         value={value}
         onChange={this.handleChange}
         showLabels
+        className={classes.nav}
       >
         <BottomNavigationAction label="Leaderboard" icon={<RestoreIcon />} />
         <BottomNavigationAction label="Players" icon={<FavoriteIcon />} />
@@ -38,4 +48,4 @@ SimpleBottomNavigation.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default (SimpleBottomNavigation);
+export default withStyles(styles)(SimpleBottomNavigation);
