@@ -18,7 +18,6 @@ const styles = theme => ({
 
 function App(props) {
   const { classes } = props;
-
   return (
     <Leaderboard />
   );

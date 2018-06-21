@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import SimpleBottomNavigation from './bottomNavigation';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from './appBar'
+import PlayerProfiles from './PlayerProfiles';
 
 const store = configureStore();
 
@@ -19,29 +20,27 @@ const styles = (theme: any) => ({
   }
 });
 
-// class Routes extends React.Component {
 function Routes(props: any) {
-  // render() {
-    const { classes } = props;
+  const { classes } = props;
 
-    return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <Switch>
-            <div className={classes.root}>
-              <Grid container spacing={24}>
-                <Grid item xs={12} sm={6} className={classes.padding}>
-                  <AppBar />
-                  <Route exact path='/' component={App}/>
-                  <SimpleBottomNavigation />
-                </Grid>
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <div className={classes.root}>
+            <Grid container spacing={24}>
+              <Grid item xs={12} sm={6} className={classes.padding}>
+                <AppBar />
+                <Route exact path='/' component={App}/>
+                <Route exact path='/players' component={PlayerProfiles}/>
+                <SimpleBottomNavigation />
               </Grid>
-            </div>
-          </Switch>
-        </BrowserRouter>
-      </Provider>
-    )
-  // }
+            </Grid>
+          </div>
+        </Switch>
+      </BrowserRouter>
+    </Provider>
+  )
 }
 
 export default withStyles(styles)(Routes);
