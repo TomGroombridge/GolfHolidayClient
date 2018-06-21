@@ -3,3 +3,22 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.profileCard {
+	display: 'flex';
+}
+
+:local(.profileDetails){
+	display: 'flex';
+  flex-direction: 'column';
+}
+
+:local(.profileCover){
+	width: 100px;
+  height: 100px;
+}
+
+:local(.profileContent){
+	flex: '1 0 auto';
+}

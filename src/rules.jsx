@@ -70,8 +70,4 @@ class Rules extends React.Component {
   }
 }
 
-// InteractiveList.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
-
 export default withStyles(styles)(Rules);
