@@ -6,6 +6,11 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+import {
+  withRouter
+} from 'react-router-dom';
 
 const styles = theme => ({
   nav: {
@@ -18,11 +23,12 @@ const styles = theme => ({
 
 class SimpleBottomNavigation extends React.Component {
   state = {
-    value: 0,
+    value: '/',
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
+    this.props.history.push(value)
   };
 
   render() {
@@ -36,9 +42,9 @@ class SimpleBottomNavigation extends React.Component {
         showLabels
         className={classes.nav}
       >
-        <BottomNavigationAction label="Leaderboard" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Players" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Rules" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Leaderboard" icon={<RestoreIcon />} value="/"/>
+        <BottomNavigationAction label="Players" icon={<FavoriteIcon />} value="/players"/>
+        <BottomNavigationAction label="Rules" icon={<LocationOnIcon />} value="/rules"/>
       </BottomNavigation>
     );
   }
@@ -48,4 +54,4 @@ SimpleBottomNavigation.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SimpleBottomNavigation);
+export default withStyles(styles)(withRouter(SimpleBottomNavigation));
