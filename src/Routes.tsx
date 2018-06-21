@@ -8,6 +8,7 @@ import SimpleBottomNavigation from './bottomNavigation';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from './appBar'
 import PlayerProfiles from './PlayerProfiles';
+import Rules from './rules';
 
 const store = configureStore();
 
@@ -33,6 +34,7 @@ function Routes(props: any) {
                 <AppBar />
                 <Route exact path='/' component={App}/>
                 <Route exact path='/players' component={PlayerProfiles}/>
+                <Route exact path='/rules' component={Rules}/>
                 <SimpleBottomNavigation />
               </Grid>
             </Grid>
