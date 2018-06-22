@@ -13,7 +13,7 @@ export default class PlayerProfiles extends React.Component {
 
   componentWillMount = () => {
     let self = this;
-    axios.get('http://localhost:8080/players')
+    axios.get(`${process.env.REACT_APP_API_URL}/players`)
     .then(function (response) {
       const data = response.data;
       self.setState({players: data});

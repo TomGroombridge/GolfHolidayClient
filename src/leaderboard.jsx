@@ -20,7 +20,7 @@ class ControlledExpansionPanels extends React.Component {
 
   componentWillMount = () => {
     let self = this;
-    axios.get('http://localhost:8080/leaderboard')
+    axios.get(`${process.env.REACT_APP_API_URL}/leaderboard`)
     .then(function (response) {
       const data = response.data;
       self.setState({leaderboard: data});
