@@ -9,6 +9,7 @@
     "@types/react-redux": "^5.0.19",
     "@types/react-router-dom": "^4.2.6",
     "@types/react-router-redux": "^5.0.13",
+    "axios": "^0.18.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",

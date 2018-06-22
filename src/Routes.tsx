@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Provider } from 'react-redux'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import App from './App'
+import Leaderboard from './leaderboard'
 import configureStore from './redux/configureStore';
 import Grid from '@material-ui/core/Grid';
 import SimpleBottomNavigation from './bottomNavigation';
@@ -32,7 +32,7 @@ function Routes(props: any) {
             <Grid container spacing={24}>
               <Grid item xs={12} sm={6} className={classes.padding}>
                 <AppBar />
-                <Route exact path='/' component={App}/>
+                <Route exact path='/' component={Leaderboard}/>
                 <Route exact path='/players' component={PlayerProfiles}/>
                 <Route exact path='/rules' component={Rules}/>
                 <SimpleBottomNavigation />

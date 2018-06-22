@@ -42,26 +42,13 @@ class PositionPanel extends React.Component {
       <ExpansionPanel expanded={expanded === panelNumber} onChange={this.props.handleChange(panelNumber)}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>1</Typography>
-          <Typography className={classes.secondaryHeading}>Tom Groombridge</Typography>
-          <Typography className={classes.thirdHeading}>100pts</Typography>
+          <Typography className={classes.secondaryHeading}>{this.props.name}</Typography>
+          <Typography className={classes.thirdHeading}>{this.props.score}pts</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Badge className={classes.margin} badgeContent={40} color="primary">
-          </Badge>
-          <Badge className={classes.margin} badgeContent={40} color="primary">
-          </Badge>
-          <Badge className={classes.margin} badgeContent={40} color="primary">
-          </Badge>
-          <Badge className={classes.margin} badgeContent={40} color="primary">
-          </Badge>
-          <Badge className={classes.margin} badgeContent={40} color="primary">
-          </Badge>
-          <Badge className={classes.margin} badgeContent={40} color="primary">
-          </Badge>
-          <Badge className={classes.margin} badgeContent={40} color="primary">
-          </Badge>
-          <Badge className={classes.margin} badgeContent={40} color="primary">
-          </Badge>
+          {this.props.rounds.map((round, index) => (
+            <Badge className={classes.margin} badgeContent={round.score} color="primary" />
+          ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
     );

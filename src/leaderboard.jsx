@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import PositionPanel from './positionPanel'
+import axios from 'axios';
+
 
 const styles = theme => ({
   root: {
@@ -13,7 +15,21 @@ const styles = theme => ({
 class ControlledExpansionPanels extends React.Component {
   state = {
     expanded: null,
+    leaderboard: null
   };
+
+  componentWillMount = () => {
+    let self = this;
+    axios.get('http://localhost:8080/leaderboard')
+    .then(function (response) {
+      const data = response.data;
+      self.setState({leaderboard: data});
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
 
   handleChange = panel => (event, expanded) => {
     this.setState({
@@ -23,20 +39,26 @@ class ControlledExpansionPanels extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { expanded } = this.state;
+    const { expanded, leaderboard } = this.state;
 
-    return (
-      <div className={classes.root}>
-        <PositionPanel expanded={expanded} handleChange={this.handleChange.bind(this)} panelNumber={'panel1'}/>
-        <PositionPanel expanded={expanded} handleChange={this.handleChange.bind(this)} panelNumber={'panel2'}/>
-        <PositionPanel expanded={expanded} handleChange={this.handleChange.bind(this)} panelNumber={'panel3'}/>
-        <PositionPanel expanded={expanded} handleChange={this.handleChange.bind(this)} panelNumber={'panel4'}/>
-        <PositionPanel expanded={expanded} handleChange={this.handleChange.bind(this)} panelNumber={'panel5'}/>
-        <PositionPanel expanded={expanded} handleChange={this.handleChange.bind(this)} panelNumber={'panel6'}/>
-        <PositionPanel expanded={expanded} handleChange={this.handleChange.bind(this)} panelNumber={'panel7'}/>
-        <PositionPanel expanded={expanded} handleChange={this.handleChange.bind(this)} panelNumber={'panel8'}/>
-      </div>
-    );
+    if (leaderboard === null) {
+      return <h1>Loading</h1>;
+    } else {
+      return (
+        <div className={classes.root}>
+          {leaderboard.map((player, index) => (
+            <PositionPanel
+              expanded={expanded}
+              handleChange={this.handleChange.bind(this)}
+              panelNumber={`panel${index}`}
+              key={index}
+              name={player.player_name}
+              score={player.score}
+              rounds={player.rounds}/>
+          ))}
+        </div>
+      )
+    }
   }
 }
 
