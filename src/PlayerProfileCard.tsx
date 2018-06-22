@@ -6,14 +6,18 @@ import Typography from '@material-ui/core/Typography';
 
 export interface IPlayerProfile {
   handleOpen: Function;
+  player: {
+    name: string;
+  };
 }
 
 export default class PlayerProfileCard extends React.Component<IPlayerProfile, any> {
 
   render() {
+    const {player} = this.props;
     return (
       <div>
-        <Card onClick={this.props.handleOpen.bind(this)}>
+        <Card onClick={this.props.handleOpen.bind(this, player)}>
           <CardMedia
 
             image="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/19366125_10154507153902750_3629226289924717211_n.jpg?_nc_cat=0&oh=d2c302dda2979511305fc9e36971e281&oe=5BA9726D"
@@ -21,7 +25,7 @@ export default class PlayerProfileCard extends React.Component<IPlayerProfile, a
           />
           <div>
             <CardContent>
-              <Typography variant="subheading">Tom Groombridge</Typography>
+              <Typography variant="subheading">{player.name}</Typography>
               <Typography variant="subheading" color="textSecondary">
                 Mac Miller
               </Typography>

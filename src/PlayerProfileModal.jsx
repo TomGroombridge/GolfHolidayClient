@@ -29,8 +29,7 @@ class SimpleModal extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
-
+    const { classes, player } = this.props;
     return (
       <div>
         <Modal
@@ -39,15 +38,17 @@ class SimpleModal extends React.Component {
           open={this.props.open}
           onClose={this.props.handleClose.bind(this)}
         >
-          <div className={classes.paper}>
-            <Button onClick={this.props.handleClose.bind(this)}>Close Modal</Button>
-            <Typography variant="title" id="modal-title">
-              Text in a modal
-            </Typography>
-            <Typography variant="subheading" id="simple-modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </div>
+          {player !== null ?
+              <div className={classes.paper}>
+                <Button onClick={this.props.handleClose.bind(this)}>Close Modal</Button>
+                <Typography variant="title" id="modal-title">
+                  {player.name}
+                </Typography>
+                <Typography variant="subheading" id="simple-modal-description">
+                  {player.description}
+                </Typography>
+              </div> : <h1></h1>
+            }
         </Modal>
       </div>
     );

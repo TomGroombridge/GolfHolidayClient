@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import SimpleBottomNavigation from './bottomNavigation';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from './appBar'
-import PlayerProfiles from './PlayerProfiles';
+import PlayerProfiles from './PlayerProfiles.jsx';
 import Rules from './rules';
 
 const store = configureStore();

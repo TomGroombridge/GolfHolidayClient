@@ -25,9 +25,6 @@ class ControlledExpansionPanels extends React.Component {
       const data = response.data;
       self.setState({leaderboard: data});
     })
-    .catch(function (error) {
-      console.log(error);
-    });
   }
 
 
