@@ -45,6 +45,7 @@ class SimpleModal extends React.Component {
           {player !== null ?
               <div className={classes.paper}>
                 <Button style={{float: 'right'}} onClick={this.props.handleClose.bind(this)}><ClearIcon /></Button>
+                <br/>
                 <Typography variant="title" id="modal-title">
                   {player.name}
                 </Typography>
@@ -57,19 +58,19 @@ class SimpleModal extends React.Component {
                   <ListItem>
                     <ListItemText
                       primary="Age"
-                      secondary="18"
+                      secondary={player.age}
                     />
                   </ListItem>
                   <ListItem>
                     <ListItemText
                       primary="Last Year Position"
-                      secondary="1"
+                      secondary={player.last_year_position}
                     />
                   </ListItem>
                   <ListItem>
                     <ListItemText
                       primary="Handicap"
-                      secondary="16"
+                      secondary={player.handicap}
                     />
                   </ListItem>
                   <ListItem>

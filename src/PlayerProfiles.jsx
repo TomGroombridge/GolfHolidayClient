@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PlayerProfileCard from './PlayerProfileCard';
+import PlayerProfileCard from './PlayerProfileCard.jsx';
 import PlayerProfileModal from './PlayerProfileModal';
 import axios from 'axios';
 
