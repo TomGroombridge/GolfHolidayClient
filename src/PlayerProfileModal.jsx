@@ -51,8 +51,7 @@ class SimpleModal extends React.Component {
                 </Typography>
                 <br />
                 <Typography variant="subheading" id="simple-modal-description">
-                  Last years winner, yet to slip up this year in the warm up rounds.
-                  Maybe the handcap cut might be too tough for him this year.
+                  {player.description}
                 </Typography>
                 <List>
                   <ListItem>
