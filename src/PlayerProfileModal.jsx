@@ -72,12 +72,6 @@ class SimpleModal extends React.Component {
                       secondary={player.double_hole}
                     />
                   </ListItem>
-                  <ListItem>
-                    <ListItemText
-                      primary="Form"
-                      secondary="Not Great"
-                    />
-                  </ListItem>
                 </List>
               </div> : <h1></h1>
             }
