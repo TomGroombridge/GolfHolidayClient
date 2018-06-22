@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import PositionPanel from './positionPanel'
 import axios from 'axios';
 
@@ -9,6 +10,10 @@ const styles = theme => ({
   root: {
     width: '100%',
     paddingBottom: '50px',
+  },
+  title: {
+    margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`,
+    marginLeft: '15px',
   }
 });
 
@@ -43,6 +48,9 @@ class ControlledExpansionPanels extends React.Component {
     } else {
       return (
         <div className={classes.root}>
+          <Typography variant="title" className={classes.title}>
+            Leaderboard
+          </Typography>
           {leaderboard.map((player, index) => (
             <PositionPanel
               expanded={expanded}

@@ -69,8 +69,8 @@ class SimpleModal extends React.Component {
                   </ListItem>
                   <ListItem>
                     <ListItemText
-                      primary="Handicap"
-                      secondary={player.handicap}
+                      primary="Double Hole"
+                      secondary={player.double_hole}
                     />
                   </ListItem>
                   <ListItem>
