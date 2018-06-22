@@ -3,6 +3,7 @@ import PlayerProfileCard from './PlayerProfileCard.jsx';
 import PlayerProfileModal from './PlayerProfileModal';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+import Loading from './loading';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
@@ -42,7 +43,7 @@ class PlayerProfiles extends React.Component {
     const { classes } = this.props;
 
     if (players === null) {
-      return <h1>Loading</h1>;
+      return <Loading />;
     } else {
     	return (
     		<div>

@@ -6,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Loading from './loading';
 import axios from 'axios';
 
 const styles = theme => ({
@@ -40,7 +41,7 @@ class Rules extends React.Component {
     const { rules } = this.state;
 
     if (rules === null){
-      return <h1>Loading</h1>
+      return <Loading />;
     } else {
       return (
         <div className={classes.root}>

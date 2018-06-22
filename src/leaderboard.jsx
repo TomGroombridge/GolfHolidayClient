@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import PositionPanel from './positionPanel'
+import PositionPanel from './positionPanel';
+import Loading from './loading';
 import axios from 'axios';
 
 
@@ -44,7 +45,7 @@ class ControlledExpansionPanels extends React.Component {
     const { expanded, leaderboard } = this.state;
 
     if (leaderboard === null) {
-      return <h1>Loading</h1>;
+      return <Loading />;
     } else {
       return (
         <div className={classes.root}>
