@@ -18,6 +18,9 @@ const styles = (theme: any) => ({
   },
   padding: {
     paddingRight: '0px !important',
+  },
+  content: {
+    paddingBottom: '50px',
   }
 });
 
@@ -32,9 +35,11 @@ function Routes(props: any) {
             <Grid container spacing={24}>
               <Grid item xs={12} sm={6} className={classes.padding}>
                 <AppBar />
-                <Route exact path='/' component={Leaderboard}/>
-                <Route exact path='/players' component={PlayerProfiles}/>
-                <Route exact path='/rules' component={Rules}/>
+                <div className={classes.content}>
+                  <Route exact path='/' component={Leaderboard}/>
+                  <Route exact path='/players' component={PlayerProfiles}/>
+                  <Route exact path='/rules' component={Rules}/>
+                </div>
                 <SimpleBottomNavigation />
               </Grid>
             </Grid>

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import ListIcon from '@material-ui/icons/List';
+import FaceIcon from '@material-ui/icons/Face';
+import GolfCourseIcon from '@material-ui/icons/GolfCourse';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import {
@@ -42,9 +42,9 @@ class SimpleBottomNavigation extends React.Component {
         showLabels
         className={classes.nav}
       >
-        <BottomNavigationAction label="Leaderboard" icon={<RestoreIcon />} value="/"/>
-        <BottomNavigationAction label="Players" icon={<FavoriteIcon />} value="/players"/>
-        <BottomNavigationAction label="Rules" icon={<LocationOnIcon />} value="/rules"/>
+        <BottomNavigationAction label="Leaderboard" icon={<GolfCourseIcon />} value="/"/>
+        <BottomNavigationAction label="Players" icon={<FaceIcon />} value="/players"/>
+        <BottomNavigationAction label="Rules" icon={<ListIcon />} value="/rules"/>
       </BottomNavigation>
     );
   }
