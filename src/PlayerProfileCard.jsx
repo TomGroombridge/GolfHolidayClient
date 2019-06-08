@@ -5,7 +5,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import classNames from 'classnames';
 
 const styles = theme => ({
   card: {
@@ -55,7 +54,7 @@ class PlayerProfileCard extends React.Component {
             <Avatar
               alt="Adelle Charles"
               src={player.profile_pic_path}
-              className={classNames(classes.avatar, classes.bigAvatar)}
+              className={''}
             />
           </CardMedia>
           <div className={classes.details}>

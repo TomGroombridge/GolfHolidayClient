@@ -2,7 +2,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Badge from '@material-ui/core/Badge';
+// import Badge from '@material-ui/core/Badge';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -47,7 +47,8 @@ class PositionPanel extends React.Component {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           {this.props.rounds.map((round, index) => (
-            <Badge className={classes.margin} badgeContent={round.score} color="primary" />
+            <span>{round.score}</span>
+            // <Badge className={classes.margin} badgeContent={round.score} color="primary" />
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>

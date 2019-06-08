@@ -51,7 +51,7 @@ class PlayerProfiles extends React.Component {
             The Players
           </Typography>
     			<PlayerProfileModal open={this.state.open} handleClose={this.handleClose.bind(this)} player={modalPlayer}/>
-          {players.map((player: any, index) => (
+          {players.map((player, index) => (
     			  <PlayerProfileCard handleOpen={this.handleOpen.bind(this)} key={index} player={player}/>
           ))}
     		</div>
