@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import PositionPanel from './positionPanel';
+import TeamPanel from './teamPanel';
 import Loading from './loading';
 import axios from 'axios';
 import styled from 'styled-components'
@@ -42,18 +43,35 @@ class ControlledExpansionPanels extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, game } = this.props;
     const { expanded, leaderboard } = this.state;
-
+    let title
+    if (game === 'accumalative'){
+      title = 'Accumalative Leaderboard'
+    } else if (game === '') {
+      title = 'Individual Leaderboard'
+    } else {
+      title = 'Team Leaderboard'
+    } 
     if (leaderboard === null) {
       return <Loading />;
     } else {
       return (
         <div className={classes.root}>
           <Title fontSize="h6.fontSize">
-            Leaderboard
+            {title}
           </Title>          
-          {leaderboard.map((player, index) => (
+          {leaderboard.map((player, index) => {
+            game === 'team' ? (
+              <TeamPanel
+                expanded={expanded}
+                handleChange={this.handleChange.bind(this)}
+                panelNumber={`panel${index}`}
+                key={index}
+                name={player.player_name}
+                score={player.score}
+                rounds={player.rounds}/>
+            ) :  
             <PositionPanel
               expanded={expanded}
               handleChange={this.handleChange.bind(this)}
@@ -62,7 +80,7 @@ class ControlledExpansionPanels extends React.Component {
               name={player.player_name}
               score={player.score}
               rounds={player.rounds}/>
-          ))}
+          })}
         </div>
       )
     }
