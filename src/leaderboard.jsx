@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import PositionPanel from './positionPanel';
 import Loading from './loading';
 import axios from 'axios';
+import styled from 'styled-components'
 
 
 const styles = theme => ({
@@ -49,9 +50,9 @@ class ControlledExpansionPanels extends React.Component {
     } else {
       return (
         <div className={classes.root}>
-          <Typography variant="title" className={classes.title}>
+          <Title fontSize="h6.fontSize">
             Leaderboard
-          </Typography>
+          </Title>          
           {leaderboard.map((player, index) => (
             <PositionPanel
               expanded={expanded}
@@ -67,6 +68,10 @@ class ControlledExpansionPanels extends React.Component {
     }
   }
 }
+
+const Title = styled(Box)`
+  margin: 10px
+`;
 
 ControlledExpansionPanels.propTypes = {
   classes: PropTypes.object.isRequired,
