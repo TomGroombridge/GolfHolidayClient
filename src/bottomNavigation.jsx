@@ -6,6 +6,8 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import ListIcon from '@material-ui/icons/List';
 import FaceIcon from '@material-ui/icons/Face';
 import GolfCourseIcon from '@material-ui/icons/GolfCourse';
+import GroupIcon from '@material-ui/icons/Group'
+import PersonIcon from '@material-ui/icons/Person'
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import {
@@ -42,9 +44,9 @@ class SimpleBottomNavigation extends React.Component {
         showLabels
         className={classes.nav}
       >
-        <BottomNavigationAction label="Leaderboard" icon={<GolfCourseIcon />} value="/"/>
-        <BottomNavigationAction label="Team Board" icon={<GolfCourseIcon />} value="/team"/>
-        <BottomNavigationAction label="Players" icon={<FaceIcon />} value="/players"/>        
+        <BottomNavigationAction label="Accumalative" icon={<GolfCourseIcon />} value="/"/>
+        <BottomNavigationAction label="Team" icon={<GroupIcon />} value="/team"/>
+        <BottomNavigationAction label="Individual" icon={<PersonIcon />} value="/individual"/>        
       </BottomNavigation>
     );
   }

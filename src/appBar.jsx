@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 
-function SimpleAppBar(props) {  
+function AppBar(props) {  
   return (    
     <AppBar position="static" color="default">
       <Toolbar>
@@ -19,4 +19,4 @@ function SimpleAppBar(props) {
 }
 
 
-export default (SimpleAppBar);
+export default (AppBar);

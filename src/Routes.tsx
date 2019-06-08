@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import BottomNavigation from './bottomNavigation';
 import AppBar from './appBar'
@@ -13,7 +13,9 @@ function Routes(props: any) {
         <Grid container spacing={0}>
           <Grid item xs={12}>
             <AppBar />
-            <Leaderboard />
+            <Route component={() => <Leaderboard game={'accumalative'} />} path="/" exact/>
+            <Route component={() => <Leaderboard game={'team'} />} path="/team" exact/>
+            <Route component={() => <Leaderboard game={'individual'} />} path="/individual" exact/>
             <BottomNavigation />
           </Grid>
         </Grid>        
