@@ -43,8 +43,8 @@ class SimpleBottomNavigation extends React.Component {
         className={classes.nav}
       >
         <BottomNavigationAction label="Leaderboard" icon={<GolfCourseIcon />} value="/"/>
-        <BottomNavigationAction label="Players" icon={<FaceIcon />} value="/players"/>
-        <BottomNavigationAction label="Rules" icon={<ListIcon />} value="/rules"/>
+        <BottomNavigationAction label="Team Board" icon={<GolfCourseIcon />} value="/team"/>
+        <BottomNavigationAction label="Players" icon={<FaceIcon />} value="/players"/>        
       </BottomNavigation>
     );
   }
