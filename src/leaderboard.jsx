@@ -84,7 +84,7 @@ class Leaderboard extends React.Component {
                 key={index}
                 position={index + 1}
                 name={player.player_name}
-                score={player.score}
+                score={player.score}                
                 rounds={player.rounds}/>
             )                               
           })}
