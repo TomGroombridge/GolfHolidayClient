@@ -2,7 +2,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import Badge from '@material-ui/core/Badge';
+import Badge from '@material-ui/core/Badge';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -36,19 +36,18 @@ const styles = theme => ({
 class PositionPanel extends React.Component {
 
   render() {
-    const { expanded, panelNumber, classes} = this.props;
-
+    const { expanded, panelNumber, classes, position} = this.props;
+    
     return (
       <ExpansionPanel expanded={expanded === panelNumber} onChange={this.props.handleChange(panelNumber)}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>1</Typography>
+          <Typography className={classes.heading}>{position}</Typography>
           <Typography className={classes.secondaryHeading}>{this.props.name}</Typography>
           <Typography className={classes.thirdHeading}>{this.props.score}pts</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          {this.props.rounds.map((round, index) => (
-            <span>{round.score}</span>
-            // <Badge className={classes.margin} badgeContent={round.score} color="primary" />
+          {this.props.rounds.map((round, index) => (            
+            <Badge className={classes.margin} badgeContent={round.score} color="primary" />
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>

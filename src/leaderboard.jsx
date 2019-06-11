@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -20,7 +20,8 @@ const styles = theme => ({
   }
 });
 
-class ControlledExpansionPanels extends React.Component {
+class Leaderboard extends React.Component {
+
   state = {
     expanded: null,
     leaderboard: null
@@ -44,11 +45,11 @@ class ControlledExpansionPanels extends React.Component {
 
   render() {
     const { classes, game } = this.props;
-    const { expanded, leaderboard } = this.state;
+    const { expanded, leaderboard } = this.state;    
     let title
     if (game === 'accumalative'){
       title = 'Accumalative Leaderboard'
-    } else if (game === '') {
+    } else if (game === 'individual') {
       title = 'Individual Leaderboard'
     } else {
       title = 'Team Leaderboard'
@@ -62,24 +63,30 @@ class ControlledExpansionPanels extends React.Component {
             {title}
           </Title>          
           {leaderboard.map((player, index) => {
-            game === 'team' ? (
-              <TeamPanel
+            console.log('player', player)
+            if (game === 'team') {
+              return ( 
+                <TeamPanel
+                  expanded={expanded}
+                  handleChange={this.handleChange.bind(this)}
+                  panelNumber={`panel${index}`}
+                  key={index}
+                  position={index + 1}
+                  team={player}
+              />
+              )
+            }
+            return(
+              <PositionPanel
                 expanded={expanded}
                 handleChange={this.handleChange.bind(this)}
                 panelNumber={`panel${index}`}
                 key={index}
+                position={index + 1}
                 name={player.player_name}
                 score={player.score}
                 rounds={player.rounds}/>
-            ) :  
-            <PositionPanel
-              expanded={expanded}
-              handleChange={this.handleChange.bind(this)}
-              panelNumber={`panel${index}`}
-              key={index}
-              name={player.player_name}
-              score={player.score}
-              rounds={player.rounds}/>
+            )                               
           })}
         </div>
       )
@@ -91,8 +98,8 @@ const Title = styled(Box)`
   margin: 10px
 `;
 
-ControlledExpansionPanels.propTypes = {
+Leaderboard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ControlledExpansionPanels);
+export default withStyles(styles)(Leaderboard);

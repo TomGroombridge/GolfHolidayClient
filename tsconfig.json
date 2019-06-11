@@ -20,6 +20,7 @@
     "noUnusedLocals": true,
     "strict": false,
     "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
     "types": [
       "react"            
     ]
