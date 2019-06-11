@@ -47,7 +47,7 @@ class PositionPanel extends React.Component {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           {this.props.rounds.map((round, index) => (            
-            <Badge className={classes.margin} badgeContent={round.score} color="primary" />
+            <Badge className={classes.margin} badgeContent={round.score} color="primary" max={999} />
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
